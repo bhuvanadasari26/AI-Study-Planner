@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Study Planner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <div class="bubbles">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+</div>
+    <h1>AI Study Planner</h1>
+
+    <form method="POST">
+        <label>Subjects (comma separated):</label><br>
+        <input type="text" name="subjects"><br><br>
+
+        <label>Exam Date:</label><br>
+        <input type="date" name="exam_date"><br><br>
+
+        <button type="submit">Generate Plan</button>
+    </form>
+
+    <h2>Study Plan:</h2>
+    <ul>
+        {% for item in plan %}
+            <li>{{ item.date }} - {{ item.subject }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
